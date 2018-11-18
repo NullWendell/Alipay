@@ -352,7 +352,7 @@
         });
     },
     /** 
-     * @param 级联选择
+     * @param 授权
      * @method getAuthCode 级联选择功能主要使用在于多级关联数据选择，比如说省市区的信息选择
      * @param String  scopes 授权类型支持 auth_base（静默授权）/ auth_user（主动授权） / auth_zhima（芝麻信用）
      * @param 若成功返回所选择的数组 失败怎返回false
