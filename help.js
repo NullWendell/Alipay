@@ -352,7 +352,7 @@
         });
     },
     /** 
-     * @param 授权
+     * @param 授权 如需请求接口请添加
      * @method getAuthCode 级联选择功能主要使用在于多级关联数据选择，比如说省市区的信息选择
      * @param String  scopes 授权类型支持 auth_base（静默授权）/ auth_user（主动授权） / auth_zhima（芝麻信用）
      * @param 若成功返回所选择的数组 失败怎返回false
@@ -490,7 +490,7 @@
     previewImage (url){
         return my.previewImage({urls: url});
     },
-     /** 
+    /** 
      * @param 位置 
      * @method getLocation 拍照或从手机相册中选择图片
      * @param Number  type 0：获取经纬度1：获取经纬度和详细到区县级别的逆地理编码数据2：获取经纬度和详细到街道级别的逆地理编码数据，不推荐使用3：获取经纬度和详细到POI级别的逆地理编码数据，不推荐使用
@@ -500,6 +500,20 @@
         return new Promise(function(resolve){
             my.getLocation({
                 type: type,
+                complete: res =>{
+                    resolve(res)
+                }
+            });
+        });
+    },
+    /** 
+     * @param 系统信息 
+     * @method getSystemInfoSync 获取系统信息
+     * @param 成功失败都返回一个对象 具体参考小程序官方文档
+     */
+    getSystemInfoSync (){
+        return new Promise(function(resolve){
+            my.getSystemInfoSync({
                 complete: res =>{
                     resolve(res)
                 }
@@ -627,9 +641,44 @@
     clearStorageSync (){
         return my.clearStorageSync();
     },
+    /** 
+     * @param 网络状态 
+     * @method getNetwork 获取当前网络状态
+     * @param 成功失败都返回一个对象 具体参考小程序官方文档
+     */
+    getNetwork (){
+        return new Promise(function(resolve){
+            my.getNetworkType({
+                complete: res =>{
+                    resolve(res)
+                }
+            });
+        });
+    },
+    /** 
+     * @param 网络状态 
+     * @method onStatusChange 开始网络状态变化的监听
+     * @param 成功失败都返回一个对象 具体参考小程序官方文档
+     */
+    onStatusChange (){
+        return new Promise(function(resolve){
+            my.onNetworkStatusChange ({
+                complete: res =>{
+                    resolve(res)
+                }
+            });
+        });
+    },
+    /** 
+     * @param 网络状态 
+     * @method offStatusChange 取消网络状态变化的监听
+     */
+    offStatusChange (){
+        return my.offNetworkStatusChange();
+    },
     /**
      * 时间戳转换为日期
-     * @method Timestamp  
+     * @method Timestamp  时间戳转换为日期
      * @param {*} time 时间戳
      * 默认返回 年月日 如需要 返回年月日时分秒 求修改
      */
