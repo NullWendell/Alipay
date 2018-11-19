@@ -153,20 +153,6 @@
         return my.hideLoading();
     },
     /** 
-     * @param 交互反馈  如果页面的标题文本长度设置的过长，将有可能导致 loading 图标不显示。
-     * @method showNavigationBarLoading  显示导航栏 loading
-     */
-    showNavigationBarLoading (){
-        return my.showNavigationBarLoading();
-    },
-    /** 
-     * @param 交互反馈  
-     * @method hideNavigationBarLoading  y隐藏导航栏载提示
-     */
-    hideNavigationBarLoading (){
-        return my.hideNavigationBarLoading();
-    },
-    /** 
      * @param 交互反馈  
      * @method showActionSheet  显示操作菜单 若需要飘红效果请修改 成功返回数组索引，失败返回-1
      * @param String title 菜单标题
